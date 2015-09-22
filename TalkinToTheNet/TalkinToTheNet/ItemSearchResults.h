@@ -11,6 +11,6 @@
 @interface ItemSearchResults : NSObject
 
 @property (nonatomic)NSString *name;
-@property (nonatomic)NSString *contact;
+@property (nonatomic)NSString *formattedPhone;
 
 @end

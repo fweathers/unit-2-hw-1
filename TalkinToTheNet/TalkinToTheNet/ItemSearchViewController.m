@@ -59,16 +59,20 @@ UITextFieldDelegate
              NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
              NSLog(@"%@", json);
              
-             NSArray *venue = [json objectForKey:@"venues"];
+             NSArray *response = [json objectForKey:@"response"];
+//             NSArray *contact = [json objectForKey:@"contact"];
+//             NSArray *formattedPhone = [json objectForKey:@"formattedPhone"];
+             NSArray *venue = [response valueForKey:@"venues"];
+             
              self.searchResults = [[NSMutableArray alloc]init];
              for (NSDictionary *venues in venue) {
                  
                  NSString *name = [venues objectForKey:@"name"];
-                 NSString *contact = [venues objectForKey:@"contact"];
+//                 NSString *contact = [venues objectForKey:@"contact"];
                  
                  ItemSearchResults *searchObject = [[ItemSearchResults alloc]init];
                  searchObject.name = name;
-                 searchObject.contact = contact;
+//                 searchObject.formattedPhone = formattedPhone;
                  
                  [self.searchResults addObject:searchObject];
              }
@@ -76,8 +80,6 @@ UITextFieldDelegate
              block();
          }
      }];
-    
-    //do something with the data
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -92,9 +94,10 @@ UITextFieldDelegate
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier" forIndexPath:indexPath];
     
-    ItemSearchResults *currentResult = self.searchResults[indexPath.row];
+    NSInteger row = (NSInteger) [indexPath row];
+    ItemSearchResults *currentResult = self.searchResults[row];
     cell.textLabel.text = currentResult.name;
-    cell.detailTextLabel.text = currentResult.contact;
+    cell.detailTextLabel.text = currentResult.formattedPhone;
     
     return cell;
 }
