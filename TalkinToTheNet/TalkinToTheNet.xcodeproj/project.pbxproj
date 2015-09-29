@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		004BEFFA1BBB3635003A050D /* InstagramSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 004BEFF91BBB3635003A050D /* InstagramSearchViewController.m */; settings = {ASSET_TAGS = (); }; };
 		009AFE111BB0B72A00691C29 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 009AFE101BB0B72A00691C29 /* APIManager.m */; settings = {ASSET_TAGS = (); }; };
 		009AFE141BB0B78900691C29 /* ItemSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009AFE131BB0B78900691C29 /* ItemSearchViewController.m */; settings = {ASSET_TAGS = (); }; };
 		009AFE171BB0CC7900691C29 /* ItemSearchResults.m in Sources */ = {isa = PBXBuildFile; fileRef = 009AFE161BB0CC7900691C29 /* ItemSearchResults.m */; settings = {ASSET_TAGS = (); }; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		004BEFF81BBB3635003A050D /* InstagramSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramSearchViewController.h; sourceTree = "<group>"; };
+		004BEFF91BBB3635003A050D /* InstagramSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramSearchViewController.m; sourceTree = "<group>"; };
 		009AFE0F1BB0B72A00691C29 /* APIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
 		009AFE101BB0B72A00691C29 /* APIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
 		009AFE121BB0B78900691C29 /* ItemSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemSearchViewController.h; sourceTree = "<group>"; };
@@ -48,6 +51,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		004BEFF61BBB35A1003A050D /* FourSquareResults */ = {
+			isa = PBXGroup;
+			children = (
+				009AFE151BB0CC7900691C29 /* ItemSearchResults.h */,
+				009AFE161BB0CC7900691C29 /* ItemSearchResults.m */,
+				009AFE121BB0B78900691C29 /* ItemSearchViewController.h */,
+				009AFE131BB0B78900691C29 /* ItemSearchViewController.m */,
+			);
+			name = FourSquareResults;
+			sourceTree = "<group>";
+		};
+		004BEFF71BBB35C2003A050D /* Instagram Results */ = {
+			isa = PBXGroup;
+			children = (
+				004BEFF81BBB3635003A050D /* InstagramSearchViewController.h */,
+				004BEFF91BBB3635003A050D /* InstagramSearchViewController.m */,
+			);
+			name = "Instagram Results";
+			sourceTree = "<group>";
+		};
 		8D7DCD3D1BAF859400A92AD2 = {
 			isa = PBXGroup;
 			children = (
@@ -67,14 +90,12 @@
 		8D7DCD481BAF859400A92AD2 /* TalkinToTheNet */ = {
 			isa = PBXGroup;
 			children = (
+				004BEFF61BBB35A1003A050D /* FourSquareResults */,
+				004BEFF71BBB35C2003A050D /* Instagram Results */,
 				8D7DCD4C1BAF859400A92AD2 /* AppDelegate.h */,
 				8D7DCD4D1BAF859400A92AD2 /* AppDelegate.m */,
 				8D7DCD4F1BAF859400A92AD2 /* ViewController.h */,
 				8D7DCD501BAF859400A92AD2 /* ViewController.m */,
-				009AFE151BB0CC7900691C29 /* ItemSearchResults.h */,
-				009AFE161BB0CC7900691C29 /* ItemSearchResults.m */,
-				009AFE121BB0B78900691C29 /* ItemSearchViewController.h */,
-				009AFE131BB0B78900691C29 /* ItemSearchViewController.m */,
 				009AFE0F1BB0B72A00691C29 /* APIManager.h */,
 				009AFE101BB0B72A00691C29 /* APIManager.m */,
 				8D7DCD521BAF859400A92AD2 /* Main.storyboard */,
@@ -165,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				009AFE141BB0B78900691C29 /* ItemSearchViewController.m in Sources */,
+				004BEFFA1BBB3635003A050D /* InstagramSearchViewController.m in Sources */,
 				009AFE111BB0B72A00691C29 /* APIManager.m in Sources */,
 				8D7DCD511BAF859400A92AD2 /* ViewController.m in Sources */,
 				8D7DCD4E1BAF859400A92AD2 /* AppDelegate.m in Sources */,
