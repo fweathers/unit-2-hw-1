@@ -18,12 +18,6 @@ UITableViewDelegate,
 UITextFieldDelegate
 >
 
-@property (weak, nonatomic) IBOutlet UITextField *textSearchField;
-
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-
-@property (nonatomic) NSMutableArray *searchResults;
-
 @end
 
 @implementation ItemSearchViewController
@@ -52,6 +46,8 @@ UITextFieldDelegate
 
 }
 
+#pragma mark - Foursquare API info
+
 - (void)makeNewLocationRequestWithSearchTerm:(NSString *)searchTerm
                              callbackBlock:(void(^)())block {
     
@@ -73,21 +69,20 @@ UITextFieldDelegate
          if (data != nil) {
              NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
              NSLog(@"%@", json);
-             
+            
              NSArray *response = [json objectForKey:@"response"];
-//             NSArray *contact = [json objectForKey:@"contact"];
-//             NSArray *formattedPhone = [json objectForKey:@"formattedPhone"];
+
              NSArray *venue = [response valueForKey:@"venues"];
              
              self.searchResults = [[NSMutableArray alloc]init];
              for (NSDictionary *venues in venue) {
                  
                  NSString *name = [venues objectForKey:@"name"];
-//                 NSString *contact = [venues objectForKey:@"contact"];
+                 NSString *contact = [venues objectForKey:@"contact"][@"formattedPhone"];
                  
                  ItemSearchResults *searchObject = [[ItemSearchResults alloc]init];
                  searchObject.name = name;
-//                 searchObject.formattedPhone = formattedPhone;
+                 searchObject.formattedPhone = contact;
                  
                  [self.searchResults addObject:searchObject];
              }
@@ -97,25 +92,7 @@ UITextFieldDelegate
      }];
 }
 
-#pragma mark: Instagram Info
-
-- (void)fetchInstagramData {
-    //create instagram url
-    NSURL *instagramURL = [NSURL URLWithString:@"https://api.instagram.com/v1/tags/%@/media/recent?client_id=ac0ee52ebb154199bfabfb15b498c067"];
-    
-    //fetch data from the instagram endpoint and print json response
-    [APIManager GETRequestWithURL:instagramURL completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        
-        self.instagramData = [json objectForKey:@"data"];
-        
-        [self.tableView reloadData];
-        
-    }];
-    
-}
-
-
+#pragma mark - tableView Info
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -131,7 +108,9 @@ UITextFieldDelegate
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier" forIndexPath:indexPath];
     
     NSInteger row = (NSInteger) [indexPath row];
+    
     ItemSearchResults *currentResult = self.searchResults[row];
+    
     cell.textLabel.text = currentResult.name;
     cell.detailTextLabel.text = currentResult.formattedPhone;
     

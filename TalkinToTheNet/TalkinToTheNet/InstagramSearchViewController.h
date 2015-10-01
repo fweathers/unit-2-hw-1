@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "InstagramSearchViewController.h"
+#import "ItemSearchViewController.h"
+#import "APIManager.h"
 
 @interface InstagramSearchViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
-
-@property (nonatomic) NSDictionary *instagramPost;
+@property (nonatomic) ItemSearchViewController *dataCarriedOver;
 
 @end
