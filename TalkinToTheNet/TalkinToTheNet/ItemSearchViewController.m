@@ -27,12 +27,12 @@ UITextFieldDelegate
     
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     
-    InstagramSearchViewController *viewController = segue.destinationViewController;
+    ItemSearchViewController *passData = self.searchResults[indexPath.row];
     
-    NSDictionary *currentInstagramItem = self.searchResults [indexPath.row];
+//    ItemSearchViewController *currentInstagramItem = self.searchResults[indexPath.row];
     
-    viewController.instagramPost = currentInstagramItem;
-    
+    InstagramSearchViewController *vc = segue.destinationViewController;
+    vc.dataCarriedOver = passData;
     
 }
 
