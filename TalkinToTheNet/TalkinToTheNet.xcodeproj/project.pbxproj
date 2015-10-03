@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		004BEFFA1BBB3635003A050D /* InstagramSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 004BEFF91BBB3635003A050D /* InstagramSearchViewController.m */; settings = {ASSET_TAGS = (); }; };
+		0088FAF81BC01868007C5F87 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0088FAF71BC01868007C5F87 /* MapKit.framework */; };
+		0088FAFA1BC01872007C5F87 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0088FAF91BC01872007C5F87 /* CoreLocation.framework */; };
+		0088FB001BC018CF007C5F87 /* MapKitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0088FAFF1BC018CF007C5F87 /* MapKitViewController.m */; settings = {ASSET_TAGS = (); }; };
 		009AFE111BB0B72A00691C29 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 009AFE101BB0B72A00691C29 /* APIManager.m */; settings = {ASSET_TAGS = (); }; };
 		009AFE141BB0B78900691C29 /* ItemSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009AFE131BB0B78900691C29 /* ItemSearchViewController.m */; settings = {ASSET_TAGS = (); }; };
 		335BC1B63AD5FEFB5104EE61 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6AA51EBBAFB3BE7CDCE0240 /* libPods.a */; };
@@ -21,6 +24,10 @@
 /* Begin PBXFileReference section */
 		004BEFF81BBB3635003A050D /* InstagramSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramSearchViewController.h; sourceTree = "<group>"; };
 		004BEFF91BBB3635003A050D /* InstagramSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramSearchViewController.m; sourceTree = "<group>"; };
+		0088FAF71BC01868007C5F87 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		0088FAF91BC01872007C5F87 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		0088FAFE1BC018CF007C5F87 /* MapKitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapKitViewController.h; path = "../../../../../Projects/C4Q/unit-2/LearnAPIS/LearnAPIS/MapKitViewController.h"; sourceTree = "<group>"; };
+		0088FAFF1BC018CF007C5F87 /* MapKitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapKitViewController.m; path = "../../../../../Projects/C4Q/unit-2/LearnAPIS/LearnAPIS/MapKitViewController.m"; sourceTree = "<group>"; };
 		009AFE0F1BB0B72A00691C29 /* APIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
 		009AFE101BB0B72A00691C29 /* APIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
 		009AFE121BB0B78900691C29 /* ItemSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemSearchViewController.h; sourceTree = "<group>"; };
@@ -43,6 +50,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0088FAFA1BC01872007C5F87 /* CoreLocation.framework in Frameworks */,
+				0088FAF81BC01868007C5F87 /* MapKit.framework in Frameworks */,
 				335BC1B63AD5FEFB5104EE61 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -79,6 +88,8 @@
 				004BEFF91BBB3635003A050D /* InstagramSearchViewController.m */,
 				009AFE0F1BB0B72A00691C29 /* APIManager.h */,
 				009AFE101BB0B72A00691C29 /* APIManager.m */,
+				0088FAFE1BC018CF007C5F87 /* MapKitViewController.h */,
+				0088FAFF1BC018CF007C5F87 /* MapKitViewController.m */,
 				8D7DCD521BAF859400A92AD2 /* Main.storyboard */,
 				8D7DCD551BAF859400A92AD2 /* Assets.xcassets */,
 				8D7DCD571BAF859400A92AD2 /* LaunchScreen.storyboard */,
@@ -108,6 +119,8 @@
 		CC4F8B8489E8FB2FD3F648EB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0088FAF91BC01872007C5F87 /* CoreLocation.framework */,
+				0088FAF71BC01868007C5F87 /* MapKit.framework */,
 				D6AA51EBBAFB3BE7CDCE0240 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -218,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0088FB001BC018CF007C5F87 /* MapKitViewController.m in Sources */,
 				009AFE141BB0B78900691C29 /* ItemSearchViewController.m in Sources */,
 				004BEFFA1BBB3635003A050D /* InstagramSearchViewController.m in Sources */,
 				009AFE111BB0B72A00691C29 /* APIManager.m in Sources */,
