@@ -23,18 +23,18 @@ UITextFieldDelegate
 @implementation ItemSearchViewController
 
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    
-    ItemSearchViewController *passData = self.searchResults[indexPath.row];
-    
-//    ItemSearchViewController *currentInstagramItem = self.searchResults[indexPath.row];
-    
-    InstagramSearchViewController *vc = segue.destinationViewController;
-    vc.dataCarriedOver = passData;
-    
-}
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    
+//    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+//    
+//    ItemSearchViewController *passData = self.searchResults[indexPath.row];
+//    
+////    ItemSearchViewController *currentInstagramItem = self.searchResults[indexPath.row];
+//    
+//    InstagramSearchViewController *vc = segue.destinationViewController;
+//    vc.dataCarriedOver = passData;
+//    
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -117,6 +117,11 @@ UITextFieldDelegate
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"showDetails" sender:indexPath];
+}
+
 #pragma mark - text field delegate
 
 // user tapped return
@@ -131,6 +136,17 @@ UITextFieldDelegate
     }];
     
     return YES;
+}
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"showDetails"]) {
+        NSIndexPath *indexPath = sender;
+        ItemSearchResults *currentResult = self.searchResults[indexPath.row];
+        
+        InstagramSearchViewController *myVC = [segue destinationViewController];
+        myVC.tagName = currentResult.name;
+    }
 }
 
 @end

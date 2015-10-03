@@ -14,5 +14,6 @@
 @interface InstagramSearchViewController : UIViewController
 
 @property (nonatomic) ItemSearchViewController *dataCarriedOver;
+@property(nonatomic, strong) NSString *tagName;
 
 @end

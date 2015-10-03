@@ -33,20 +33,11 @@ UITableViewDelegate
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.nameLabel.text = self.dataCarriedOver.name;
+    NSLog(@"here - %@", self.tagName);
+    self.nameLabel.text = self.tagName;
     
     [self fetchInstagramData];
     
-    //    NSLog(@"%@", self.instagramPost);
-    //
-    //    NSDictionary *images = [self.instagramPost objectForKey: @"images"];
-    //    NSDictionary *sr = [images objectForKey:@"standard_resolution"];
-    //    NSString *urlString = [sr objectForKey:@"url"];
-    //
-    //    NSURL *url = [NSURL URLWithString:urlString];
-    //    NSData *pictureData = [NSData dataWithContentsOfURL:url];
-    //    UIImage *picture = [UIImage imageWithData:pictureData];
-    //    _imageView.image = picture;
 }
 
 
@@ -58,11 +49,12 @@ UITableViewDelegate
     
     NSString *instagramURLString = [NSString stringWithFormat:@"https://api.instagram.com/v1/tags/%@/media/recent?client_id=ac0ee52ebb154199bfabfb15b498c067",searchWord];
     
+    
 }
 
 - (void)fetchInstagramData {
     
-    NSString *passedName = [self.dataCarriedOver.name stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString *passedName = [self.tagName stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSString *emptyPassedName = [passedName stringByReplacingOccurrencesOfString:@"'" withString:@""];
     
     NSString *url = [NSString stringWithFormat:@"https://api.instagram.com/v1/tags/%@/media/recent?client_id=ac0ee52ebb154199bfabfb15b498c067", emptyPassedName];
@@ -86,12 +78,21 @@ UITableViewDelegate
             self.instagramResultsPost = [[NSMutableArray alloc]init];
             
             for (NSDictionary *result in instagramResults) {
-//                InstagramPost *igPost = [[[InstagramPost alloc]init] initWithJSON:result];
                 
-//                [self.instagramResultsPost addObject:igPost];
+                NSDictionary *images = [result objectForKey: @"images"];
+                NSDictionary *sr = [images objectForKey:@"standard_resolution"];
+                NSString *urlString = [sr objectForKey:@"url"];
+                NSLog(@"%@", urlString);
+                NSURL *url = [NSURL URLWithString:urlString];
+                NSData *pictureData = [NSData dataWithContentsOfURL:url];
+                UIImage *picture = [UIImage imageWithData:pictureData];
+                _imageView.image = picture;
+                break;
             }
             
-//            [self.imageView reloadData];
+            //            [self.imageView reloadData];
+        } else {
+            NSLog(@"%@", error);
         }
     }];
 }
