@@ -7,9 +7,7 @@
 //
 
 #import "InstagramSearchViewController.h"
-#import "ItemSearchResults.h"
 #import "ItemSearchViewController.h"
-#import "InstagramPost.h"
 
 @interface InstagramSearchViewController ()
 <
@@ -43,14 +41,14 @@ UITableViewDelegate
 
 #pragma mark: Instagram Info
 
-- (void)makeNewViewWithPictureFromIG:(NSString *)searchWord
-                       callbackBlock:(void(^)())block {
-    
-    
-    NSString *instagramURLString = [NSString stringWithFormat:@"https://api.instagram.com/v1/tags/%@/media/recent?client_id=ac0ee52ebb154199bfabfb15b498c067",searchWord];
-    
-    
-}
+//- (void)makeNewViewWithPictureFromIG:(NSString *)searchWord
+//                       callbackBlock:(void(^)())block {
+//    
+//    
+//    NSString *instagramURLString = [NSString stringWithFormat:@"https://api.instagram.com/v1/tags/%@/media/recent?client_id=ac0ee52ebb154199bfabfb15b498c067",searchWord];
+//    
+//    
+//}
 
 - (void)fetchInstagramData {
     

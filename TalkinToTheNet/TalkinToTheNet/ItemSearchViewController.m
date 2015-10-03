@@ -8,7 +8,6 @@
 
 #import "ItemSearchViewController.h"
 #import "APIManager.h"
-#import "ItemSearchResults.h"
 #import "InstagramSearchViewController.h"
 
 @interface ItemSearchViewController ()
@@ -22,35 +21,20 @@ UITextFieldDelegate
 
 @implementation ItemSearchViewController
 
-
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    
-//    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//    
-//    ItemSearchViewController *passData = self.searchResults[indexPath.row];
-//    
-////    ItemSearchViewController *currentInstagramItem = self.searchResults[indexPath.row];
-//    
-//    InstagramSearchViewController *vc = segue.destinationViewController;
-//    vc.dataCarriedOver = passData;
-//    
-//}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
     self.textSearchField.delegate = self;
-
+    
 }
 
 #pragma mark - Foursquare API info
 
 - (void)makeNewLocationRequestWithSearchTerm:(NSString *)searchTerm
-                             callbackBlock:(void(^)())block {
-    
+                               callbackBlock:(void(^)())block {
     
     NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?client_id=BLLBTLNEPSSZIEBWUOADOTUJEILKQUCW0HY002GHC0LMXUIJ&client_secret=EVG2DX3I0VTK2SWCCZVAYYMIMXRTYPGXPWRID4GUVFA54JJC&v=20130815&ll=40.7,-74&query=%@", searchTerm];
     
@@ -69,9 +53,9 @@ UITextFieldDelegate
          if (data != nil) {
              NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
              NSLog(@"%@", json);
-            
+             
              NSArray *response = [json objectForKey:@"response"];
-
+             
              NSArray *venue = [response valueForKey:@"venues"];
              
              self.searchResults = [[NSMutableArray alloc]init];
@@ -80,7 +64,7 @@ UITextFieldDelegate
                  NSString *name = [venues objectForKey:@"name"];
                  NSString *contact = [venues objectForKey:@"contact"][@"formattedPhone"];
                  
-                 ItemSearchResults *searchObject = [[ItemSearchResults alloc]init];
+                 ItemSearchViewController *searchObject = [[ItemSearchViewController alloc]init];
                  searchObject.name = name;
                  searchObject.formattedPhone = contact;
                  
@@ -109,7 +93,7 @@ UITextFieldDelegate
     
     NSInteger row = (NSInteger) [indexPath row];
     
-    ItemSearchResults *currentResult = self.searchResults[row];
+    ItemSearchViewController *currentResult = self.searchResults[row];
     
     cell.textLabel.text = currentResult.name;
     cell.detailTextLabel.text = currentResult.formattedPhone;
@@ -138,11 +122,10 @@ UITextFieldDelegate
     return YES;
 }
 
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetails"]) {
         NSIndexPath *indexPath = sender;
-        ItemSearchResults *currentResult = self.searchResults[indexPath.row];
+        ItemSearchViewController *currentResult = self.searchResults[indexPath.row];
         
         InstagramSearchViewController *myVC = [segue destinationViewController];
         myVC.tagName = currentResult.name;
