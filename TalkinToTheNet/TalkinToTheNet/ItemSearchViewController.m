@@ -98,6 +98,16 @@ UITextFieldDelegate
     cell.textLabel.text = currentResult.name;
     cell.detailTextLabel.text = currentResult.formattedPhone;
     
+    cell.textLabel.text = currentResult.name;
+    cell.detailTextLabel.text = currentResult.formattedPhone;
+    
+    // add colour to my cells
+    [cell setBackgroundColor:[UIColor yellowColor]];
+    cell.contentView.layer.cornerRadius = 5.0f;
+    cell.contentView.layer.borderWidth = 2.0f;
+    cell.contentView.layer.borderColor = [UIColor blackColor].CGColor;
+
+    
     return cell;
 }
 

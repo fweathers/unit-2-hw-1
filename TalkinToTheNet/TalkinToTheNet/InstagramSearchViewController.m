@@ -17,6 +17,7 @@ UITableViewDelegate
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *infoLabel;
 
 @property (nonatomic) NSDictionary *instagramPost;
 
@@ -34,6 +35,7 @@ UITableViewDelegate
     NSLog(@"here - %@", self.tagName);
     self.nameLabel.text = self.tagName;
     
+//    self.infoLabel.text = self.tagAddress;
     [self fetchInstagramData];
     
 }

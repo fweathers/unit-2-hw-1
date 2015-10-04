@@ -15,5 +15,6 @@
 
 @property (nonatomic) ItemSearchViewController *dataCarriedOver;
 @property(nonatomic, strong) NSString *tagName;
+@property(nonatomic, strong) NSString *tagLabel;
 
 @end
